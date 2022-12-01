@@ -24,7 +24,7 @@ exports.proceedPayment = (req, res, next) => {
       email: req.body.email,
     },
     callbacks: {
-      finish: "http://localhost:2000/status",
+      finish: "https://toserba.netlify.app/status",
     },
     enabled_payments: [
       "credit_card",
