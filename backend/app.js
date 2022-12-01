@@ -18,7 +18,12 @@ app.use(
     parameterLimit: 50000,
   })
 );
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: ["get", "post", "put", "delete"],
+  })
+);
 
 app.use(cookieParser());
 app.use(fileUpload());
