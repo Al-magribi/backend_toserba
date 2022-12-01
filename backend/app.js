@@ -20,7 +20,7 @@ app.use(
 );
 app.use(
   cors({
-    origin: "https://toserba.netlify.app/",
+    origin: "http://localhost:3000",
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
