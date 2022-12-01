@@ -21,7 +21,7 @@ app.use(
 app.use(
   cors({
     origin: "https://toserba.netlify.app/",
-    methods: ["get", "post", "put", "delete"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 
