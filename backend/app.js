@@ -5,7 +5,6 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path = require("path");
-const cors = require("cors");
 
 const errorMiddleware = require("./middlewares/errors");
 
@@ -18,12 +17,14 @@ app.use(
     parameterLimit: 50000,
   })
 );
-app.use(
-  cors({
-    origin: "https://toserba.netlify.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-  })
-);
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 app.use(cookieParser());
 app.use(fileUpload());
